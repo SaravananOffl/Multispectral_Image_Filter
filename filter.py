@@ -5,8 +5,8 @@ import warnings
 import xlwt
 import matplotlib.pyplot as plt
 
-class filter(object):
-        def __init__(self, in_folder, band_no, threshold, out_folder, excel_name ):
+class Filter(object):
+        def __init__(self, in_folder, excel_name, band_no, threshold, out_folder,  ):
                 self.in_folder = in_folder
                 self.band_no = band_no
                 self.threshold = threshold
@@ -50,8 +50,10 @@ class filter(object):
             print("Started....")
             self.setup_excel()
             row_no = 0
-            for file in self.findFiles(self.in_folder):
-                raster = gdal.Open(f'{file}')
+            print(f'{self.in_folder}')
+            for file in self.findFiles(f'{self.in_folder}'):
+                print(file)
+                raster = gdal.Open(f'{self.in_folder}\{file}')
 
                 band = []
                 for i in range(raster.RasterCount):

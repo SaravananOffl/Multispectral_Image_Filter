@@ -1,6 +1,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from filter import Filter
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("Filter")
@@ -83,11 +83,10 @@ class Ui_MainWindow(object):
         output_folder = self.output_folder.text()
         print(output_folder)
         input_folder = self.input_folder.text()
-        band_no = int(self.band_no.text())
-        threshold = float(self.threshold.text())
+        # band_no = int(self.band_no.text())
+        # threshold = float(self.threshold.text())
         excel_name = self.excel_sheet_name.text()
-
-        print(output_folder,input_folder,band_no,threshold,excel_name)
+        Filter(input_folder,excel_name = excel_name,  band_no=0, threshold=0, out_folder=0)
 
 if __name__ == "__main__":
     import sys
